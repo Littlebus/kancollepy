@@ -11,19 +11,26 @@ from PIL import Image
 窗口名称
 当前状态
 '''
-		
+
+def getwindowhandle(name):
+	return win32gui.FindWindow(None,name)
+
+
+def getchildhandle(handle):
+	c = []
+	win32gui.EnumChildWindows(handle,lambda x,y:y.append(x),c)
+	return c
 
 
 '''
 accept name of window
 return a rect of window
 '''
-def getwindowrect(name):
-	handler = win32gui.FindWindow(None, name)
-	win32gui.SetForegroundWindow(handler)
+def getwindowrect(handler):
 	window = win32gui.GetWindowRect(handler)
-	rect = (window[0]+8, window[1]+31, window[2], window[3])
-	return rect
+	# rect = (window[0], window[1], window[2], window[3])
+	# rect = (window[0]+8, window[1]+31, window[2], window[3])
+	return window
 
 '''
 receive image
@@ -49,21 +56,8 @@ def getplayarea(img):
 	#find in first row
 	for i in range(800):
 		if img[0][i][0] != img[0][i+1][0] or img[0][i][1] != img[0][i+1][1] or img[0][i][2] != img[0][i+1][2]:
-			return (i+1,0,i+800,479)
+			return (i,0,i+800,480)
 	for i in range(480):
 		if img[i][0][0] != img[i+1][0][0] or img[i][0][1] != img[i+1][0][1] or img[i][0][2] != img[i+1][0][2]:
-			return (0,i+1,799,i+480)
+			return (0,i,800,i+480)
 	return None
-
-if __name__ == '__main__':
-	
-	wdrect = getwindowrect('poi')
-	im = snapshot.getSnapshot(wdrect)
-	im1 = img2array(im)
-	print(wdrect)
-	rect = getplayarea(im1)
-	print(rect)
-	area = (wdrect[0]+rect[0],wdrect[1]+rect[1],wdrect[0]+rect[2],wdrect[1]+rect[3])
-	img = img2array(snapshot.getSnapshot(area))
-
-	show(img)
