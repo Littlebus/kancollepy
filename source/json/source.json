@@ -1,0 +1,24 @@
+{
+	"yuanzheng_number": ["source/image/yuanzheng1.png", "source/image/yuanzheng2.png", 
+						"source/image/yuanzheng3.png", "source/image/yuanzheng4.png", 
+						"source/image/yuanzheng5.png", "source/image/yuanzheng6.png", 
+						"source/image/yuanzheng7.png", "source/image/yuanzheng8.png", 
+						"source/image/yuanzheng9.png", "source/image/yuanzheng10.png", 
+						"source/image/yuanzheng11.png", "source/image/yuanzheng12.png", 
+						"source/image/yuanzheng13.png", "source/image/yuanzheng14.png", 
+						"source/image/yuanzheng15.png", "source/image/yuanzheng16.png", 
+						"source/image/yuanzheng17.png", "source/image/yuanzheng18.png", 
+						"source/image/yuanzheng19.png", "source/image/yuanzheng20.png", 
+						"source/image/yuanzheng21.png", "source/image/yuanzheng22.png", 
+						"source/image/yuanzheng23.png", "source/image/yuanzheng24.png", 
+						"source/image/yuanzheng25.png", "source/image/yuanzheng26.png", 
+						"source/image/yuanzheng27.png", "source/image/yuanzheng28.png", 
+						"source/image/yuanzheng29.png", "source/image/yuanzheng30.png", 
+						"source/image/yuanzheng31.png", "source/image/yuanzheng32.png", 
+						"source/image/yuanzheng33.png", "source/image/yuanzheng34.png", 
+						"source/image/yuanzheng35.png", "source/image/yuanzheng36.png", 
+						"source/image/yuanzheng37.png", "source/image/yuanzheng38.png", 
+						"source/image/yuanzheng39.png", "source/image/yuanzheng40.png"],
+	"yuanzheng_status":["source/image/yuanzheng_ing.png","source/image/yuanzheng_tbs.png"]
+
+}
