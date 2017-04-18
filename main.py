@@ -116,7 +116,8 @@ def checkRestTime(area):
 			else:
 				time_wd.append(thresh.index(min_thresh))
 		# print(time_wd)
-		return True, time_wd
+		time = (time_wd[0]*10+time_wd[1])*3600+(time_wd[2]*10+time_wd[3])*60+time_wd[4]*10+time_wd[5]
+		return True, time
 	elif area == 'rq':
 		return True
 	else:
