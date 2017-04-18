@@ -1,4 +1,8 @@
 {
+	"mugang_sign":"source/image/mugang_sign.png",
+	"yuanzheng_sign":"source/image/yuanzheng_sign",
+	"yanxi_sign":"source/image/yanxi_sign",
+	"low_gas":"source/image/low_gas",
 	"yuanzheng_number": ["source/image/yuanzheng1.png", "source/image/yuanzheng2.png", 
 						"source/image/yuanzheng3.png", "source/image/yuanzheng4.png", 
 						"source/image/yuanzheng5.png", "source/image/yuanzheng6.png", 
@@ -19,6 +23,11 @@
 						"source/image/yuanzheng35.png", "source/image/yuanzheng36.png", 
 						"source/image/yuanzheng37.png", "source/image/yuanzheng38.png", 
 						"source/image/yuanzheng39.png", "source/image/yuanzheng40.png"],
-	"yuanzheng_status":["source/image/yuanzheng_ing.png","source/image/yuanzheng_tbs.png"]
+	"yuanzheng_status":["source/image/yuanzheng_ing.png","source/image/yuanzheng_tbs.png"],
+	"yuanzheng_time":["source/image/time_0.png","source/image/time_1.png",
+					"source/image/time_2.png","source/image/time_3.png",
+					"source/image/time_4.png","source/image/time_5.png",
+					"source/image/time_6.png","source/image/time_7.png",
+					"source/image/time_8.png","source/image/time_9.png"]
 
 }

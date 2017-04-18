@@ -47,9 +47,10 @@ def goyuanzheng(number):
 			# print('match succeed: %d!'%number)
 			pt = abspoint(point['yuanzheng_number'][areas.index(i)])
 			click.click(*pt)
-			res = check()
+			res = checkYZstatus()
 			if not res:
 				print('have left')
+				time = checkRestTime('yz')
 				backToMugang()
 				return
 			sign = False
@@ -58,21 +59,71 @@ def goyuanzheng(number):
 		backToMugang()		
 
 
-
-def check():
+'''
+检查远征是否已经出发：
+必须在已经点击数字后进行
+'''
+def checkYZstatus():
 	path = source['yuanzheng_status'][0]
 	rect = absrect(pos['yuanzheng_status'])
 
 	time.sleep(1)
+	#获得按钮区域
 	imgs = gw.img2array(snapshot.getSnapshot(rect))
-	# gw.show(imgs)
 	imgt = cv2.imread(path)
-	# gw.show(imgt)
 	judge, thresh = Match.judgematch(imgs,imgt,pos['threshold'])
 	print(judge,thresh)
 	if judge:
 		return False
 	return True
+
+def checkRestTime(area):
+	if area == 'yz':
+		#从文件中读取模板
+		imgt = []
+		path = source['yuanzheng_time']
+		for i in path:
+			imgt.append(cv2.imread(i))
+			# gw.show(cv2.imread(i))
+		# imgt = imgt[::-1]
+		#用map获得绝对位置
+		rect = pos['yuanzheng_time_digit']
+		rect = list(map(absrect,rect))
+		# print(rect)
+		# rect = rect[::-1]
+		time_wd = []
+		for i in rect:
+			imgs = gw.img2array(snapshot.getSnapshot(i))
+			# gw.show(imgs)
+			sign = True
+			# print(len(imgt))
+			thresh = []
+			# print('h')
+			for j in range(len(imgt)):
+				# print(type(template))
+				# gw.show(template)
+				judge, thresht = Match.judgematch(imgs,imgt[j],0.03)
+				thresh.append(thresht)
+				# if judge:
+				# 	sign = False
+				# 	time_wd.append(9-j)
+				# 	break
+			# print(rect.index(i),thresh)
+			min_thresh = min(thresh)
+			# print(min_thresh)
+			if min_thresh>0.04:
+				return False,[]
+			else:
+				time_wd.append(thresh.index(min_thresh))
+		# print(time_wd)
+		return True, time_wd
+	elif area == 'rq':
+		return True
+	else:
+		return False
+
+			
+			
 
 if __name__ == '__main__': 
 	# a = []
@@ -109,6 +160,10 @@ if __name__ == '__main__':
 	point = json.load('source/json/clickpoint.json')
 	source = json.load('source/json/source.json')
 
+	res, rest_time = checkRestTime('yz')
+	print(res,rest_time)
+
+'''
 	chujiarea = tuple(pos['chuji'])
 	chujiarea = pointaddrect(plarea[0:2],chujiarea)
 
@@ -124,4 +179,4 @@ if __name__ == '__main__':
 		click.click(*pointaddpoint(plarea[0:2],point['yuanzheng']))
 		time.sleep(2)
 		goyuanzheng(2)
-
+'''
