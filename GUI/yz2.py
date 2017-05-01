@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'yz.ui'
+# Form implementation generated from reading ui file 'yz2.ui'
 #
 # Created by: PyQt5 UI code generator 5.6
 #
@@ -11,7 +11,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(323, 179)
+        MainWindow.resize(337, 199)
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(10)
+        MainWindow.setFont(font)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout_4 = QtWidgets.QGridLayout(self.centralwidget)
@@ -24,6 +28,7 @@ class Ui_MainWindow(object):
         self.checkBox.setObjectName("checkBox")
         self.gridLayout.addWidget(self.checkBox, 0, 0, 1, 1)
         self.lcdNumber_2 = QtWidgets.QLCDNumber(self.centralwidget)
+        self.lcdNumber_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.lcdNumber_2.setObjectName("lcdNumber_2")
         self.gridLayout.addWidget(self.lcdNumber_2, 1, 2, 1, 1)
         self.progressBar_2 = QtWidgets.QProgressBar(self.centralwidget)
@@ -34,13 +39,20 @@ class Ui_MainWindow(object):
         self.checkBox_3.setObjectName("checkBox_3")
         self.gridLayout.addWidget(self.checkBox_3, 2, 0, 1, 1)
         self.spinBox_3 = QtWidgets.QSpinBox(self.centralwidget)
+        self.spinBox_3.setMinimum(1)
+        self.spinBox_3.setMaximum(40)
+        self.spinBox_3.setProperty("value", 21)
         self.spinBox_3.setObjectName("spinBox_3")
         self.gridLayout.addWidget(self.spinBox_3, 2, 1, 1, 1)
         self.progressBar = QtWidgets.QProgressBar(self.centralwidget)
+        self.progressBar.setFocusPolicy(QtCore.Qt.TabFocus)
         self.progressBar.setProperty("value", 0)
         self.progressBar.setObjectName("progressBar")
         self.gridLayout.addWidget(self.progressBar, 0, 3, 1, 1)
         self.spinBox = QtWidgets.QSpinBox(self.centralwidget)
+        self.spinBox.setMinimum(1)
+        self.spinBox.setMaximum(40)
+        self.spinBox.setProperty("value", 2)
         self.spinBox.setObjectName("spinBox")
         self.gridLayout.addWidget(self.spinBox, 0, 1, 1, 1)
         self.checkBox_2 = QtWidgets.QCheckBox(self.centralwidget)
@@ -50,6 +62,9 @@ class Ui_MainWindow(object):
         self.lcdNumber.setObjectName("lcdNumber")
         self.gridLayout.addWidget(self.lcdNumber, 0, 2, 1, 1)
         self.spinBox_2 = QtWidgets.QSpinBox(self.centralwidget)
+        self.spinBox_2.setMinimum(1)
+        self.spinBox_2.setMaximum(40)
+        self.spinBox_2.setProperty("value", 5)
         self.spinBox_2.setObjectName("spinBox_2")
         self.gridLayout.addWidget(self.spinBox_2, 1, 1, 1, 1)
         self.progressBar_3 = QtWidgets.QProgressBar(self.centralwidget)
@@ -70,13 +85,9 @@ class Ui_MainWindow(object):
         self.gridLayout_5.addWidget(self.pushButton_2, 0, 1, 1, 1, QtCore.Qt.AlignHCenter)
         self.verticalLayout_6.addLayout(self.gridLayout_5)
         self.gridLayout_4.addLayout(self.verticalLayout_6, 0, 0, 1, 1)
-
         MainWindow.setCentralWidget(self.centralwidget)
-        # MainWindow.setWindowFlags(QtCore.Qt.WindowMinimizeButtonHint) 
-        MainWindow.setFixedSize(MainWindow.width(), MainWindow.height());
-        
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 323, 23))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 337, 25))
         self.menubar.setObjectName("menubar")
         self.menu = QtWidgets.QMenu(self.menubar)
         self.menu.setObjectName("menu")
@@ -91,13 +102,15 @@ class Ui_MainWindow(object):
         self.menu.addAction(self.menu_2.menuAction())
         self.menu.addSeparator()
         self.menubar.addAction(self.menu.menuAction())
+#固定窗口大小
+        MainWindow.setFixedSize(MainWindow.width(), MainWindow.height());
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "自动远征助手"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.checkBox.setText(_translate("MainWindow", "第一舰队"))
         self.checkBox_3.setText(_translate("MainWindow", "第三舰队"))
         self.checkBox_2.setText(_translate("MainWindow", "第二舰队"))
